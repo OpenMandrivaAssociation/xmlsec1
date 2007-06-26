@@ -21,10 +21,11 @@ Group: Development/C
 Source: ftp://ftp.aleksey.com/pub/xmlsec/releases/xmlsec1-%{version}.tar.gz
 BuildRoot: %{_tmppath}/xmlsec1-%{version}-root
 URL: http://www.aleksey.com/xmlsec
+BuildRequires: gnutls-devel
 BuildRequires: libxml2-devel >= 2.6.12
 BuildRequires: libxslt-devel >= 1.0.20
-BuildRequires: openssl-devel >= 0.9.6
 BuildRequires: nss-devel
+BuildRequires: openssl-devel >= 0.9.6
 
 %description
 XML Security Library is a C library based on LibXML2  and OpenSSL.
