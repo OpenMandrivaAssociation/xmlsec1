@@ -15,14 +15,12 @@
 Summary: Library providing support for "XML Signature" and "XML Encryption" standards
 Name: xmlsec1
 Version: 1.2.10
-Release: %mkrel 1
+Release: %mkrel 2
 License: MIT
 Group: Development/C
 Source: ftp://ftp.aleksey.com/pub/xmlsec/releases/xmlsec1-%{version}.tar.gz
 BuildRoot: %{_tmppath}/xmlsec1-%{version}-root
 URL: http://www.aleksey.com/xmlsec
-Requires: libxml2 >= 2.6.12
-Requires: libxslt >= 1.0.20
 BuildRequires: libxml2-devel >= 2.6.12
 BuildRequires: libxslt-devel >= 1.0.20
 BuildRequires: openssl-devel >= 0.9.6
@@ -45,11 +43,7 @@ standards "XML Digital Signature" and "XML Encryption".
 %package -n %{libname_devel}
 Summary: Libraries, includes, etc. to develop applications with XML Digital Signatures and XML Encryption support.
 Group: Development/C
-Requires: xmlsec1 = %{version}
-Requires: libxml2-devel >= 2.6.12
-Requires: libxslt-devel >= 1.0.20
-Requires: openssl-devel >= 0.9.6
-Requires: zlib-devel
+Requires: %{libname}
 
 %description -n %{libname_devel}
 Libraries, includes, etc. you can use to develop applications with XML Digital
@@ -58,10 +52,6 @@ Signatures and XML Encryption support.
 %package -n %{libname_openssl}
 Summary: OpenSSL crypto plugin for XML Security Library
 Group: Development/C
-Requires: xmlsec1 = %{version}
-Requires: libxml2 >= 2.6.12
-Requires: libxslt >= 1.0.20
-Requires: openssl >= 0.9.6
 
 %description -n %{libname_openssl}
 OpenSSL plugin for XML Security Library provides OpenSSL based crypto services
@@ -70,13 +60,7 @@ for the xmlsec library
 %package -n %{libname_openssl_devel}
 Summary: OpenSSL crypto plugin for XML Security Library
 Group: Development/C
-Requires: xmlsec1 = %{version}
-Requires: xmlsec1-devel = %{version}
-Requires: xmlsec1-openssl = %{version}
-Requires: libxml2-devel >= 2.6.12
-Requires: libxslt-devel >= 1.0.20
-Requires: openssl >= 0.9.6
-Requires: openssl-devel >= 0.9.6
+Requires: %{libname_openssl}
 
 %description -n %{libname_openssl_devel}
 Libraries, includes, etc. for developing XML Security applications with OpenSSL
@@ -84,10 +68,6 @@ Libraries, includes, etc. for developing XML Security applications with OpenSSL
 %package -n %{libname_nss}
 Summary: NSS crypto plugin for XML Security Library
 Group: Development/C
-Requires: xmlsec1 = %{version}
-Requires: libxml2 >= 2.6.12
-Requires: libxslt >= 1.0.20
-#Requires: mozilla-nss >= 1.4
 
 %description -n %{libname_nss}
 NSS plugin for XML Security Library provides NSS based crypto services
@@ -96,12 +76,7 @@ for the xmlsec library
 %package -n %{libname_nss_devel}
 Summary: NSS crypto plugin for XML Security Library
 Group: Development/C
-Requires: xmlsec1 = %{version}
-Requires: xmlsec1-devel = %{version}
-Requires: xmlsec1-nss = %{version}
-Requires: libxml2-devel >= 2.6.12
-Requires: libxslt-devel >= 1.0.20
-#Requires: mozilla-nss-devel >= 1.4
+Requires: %{libname_nss}
 
 %description -n %{libname_nss_devel}
 Libraries, includes, etc. for developing XML Security applications with NSS
@@ -109,9 +84,6 @@ Libraries, includes, etc. for developing XML Security applications with NSS
 %package -n %{libname_gnutls}
 Summary: gnutls crypto plugin for XML Security Library
 Group: Development/C
-Requires: xmlsec1 = %{version}
-Requires: libxml2 >= 2.6.12
-Requires: libxslt >= 1.0.20
 
 %description -n %{libname_gnutls}
 gnutls plugin for XML Security Library provides gnutls based crypto services
@@ -120,11 +92,7 @@ for the xmlsec library
 %package -n %{libname_gnutls_devel}
 Summary: gnutls crypto plugin for XML Security Library
 Group: Development/C
-Requires: xmlsec1 = %{version}
-Requires: xmlsec1-devel = %{version}
-Requires: xmlsec1-gnutls = %{version}
-Requires: libxml2-devel >= 2.6.12
-Requires: libxslt-devel >= 1.0.20
+Requires: %{libname_gnutls}
 
 %description -n %{libname_gnutls_devel}
 Libraries, includes, etc. for developing XML Security applications with gnutls.
