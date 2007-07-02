@@ -17,7 +17,7 @@
 Summary: Library providing support for "XML Signature" and "XML Encryption" standards
 Name: xmlsec1
 Version: 1.2.10
-Release: %mkrel 3
+Release: %mkrel 4
 License: MIT
 Group: Development/C
 Source: ftp://ftp.aleksey.com/pub/xmlsec/releases/xmlsec1-%{version}.tar.gz
@@ -47,6 +47,7 @@ standards "XML Digital Signature" and "XML Encryption".
 Summary: Libraries, includes, etc. to develop applications with XML Digital Signatures and XML Encryption support.
 Group: Development/C
 Requires: %{libname}
+Provides: %{name}-devel = %{version}-%{release}
 
 %description -n %{libname_devel}
 Libraries, includes, etc. you can use to develop applications with XML Digital
@@ -64,6 +65,7 @@ for the xmlsec library
 Summary: OpenSSL crypto plugin for XML Security Library
 Group: Development/C
 Requires: %{libname_openssl}
+Provides: %{name}-openssl-devel = %{version}-%{release}
 
 %description -n %{libname_openssl_devel}
 Libraries, includes, etc. for developing XML Security applications with OpenSSL
@@ -80,6 +82,7 @@ for the xmlsec library
 Summary: NSS crypto plugin for XML Security Library
 Group: Development/C
 Requires: %{libname_nss}
+Provides: %{name}-nss-devel = %{version}-%{release}
 
 %description -n %{libname_nss_devel}
 Libraries, includes, etc. for developing XML Security applications with NSS
@@ -96,6 +99,7 @@ for the xmlsec library
 Summary: gnutls crypto plugin for XML Security Library
 Group: Development/C
 Requires: %{libname_gnutls}
+Provides: %{name}-gnutls-devel = %{version}-%{release}
 
 %description -n %{libname_gnutls_devel}
 Libraries, includes, etc. for developing XML Security applications with gnutls.
