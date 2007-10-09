@@ -44,7 +44,7 @@ The library was created with a goal to support major XML security
 standards "XML Digital Signature" and "XML Encryption".
 
 %package -n %{libname_devel}
-Summary: Libraries, includes, etc. to develop applications with XML Digital Signatures and XML Encryption support.
+Summary: Libraries, includes, etc. to develop applications with XML Digital Signatures and XML Encryption support
 Group: Development/C
 Requires: %{libname}
 Provides: %{name}-devel = %{version}-%{release}
