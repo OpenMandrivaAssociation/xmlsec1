@@ -21,7 +21,6 @@ Release: %mkrel 5
 License: MIT
 Group: Development/C
 Source: ftp://ftp.aleksey.com/pub/xmlsec/releases/xmlsec1-%{version}.tar.gz
-BuildRoot: %{_tmppath}/xmlsec1-%{version}-root
 URL: http://www.aleksey.com/xmlsec
 BuildRequires: gnutls-devel
 BuildRequires: libxml2-devel >= 2.6.12
