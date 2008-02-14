@@ -88,7 +88,7 @@ Provides: %{name}-nss-devel = %{version}-%{release}
 Libraries, includes, etc. for developing XML Security applications with NSS
 
 %package -n %{libname_gnutls}
-Summary: gnutls crypto plugin for XML Security Library
+Summary: Gnutls crypto plugin for XML Security Library
 Group: Development/C
 
 %description -n %{libname_gnutls}
@@ -96,7 +96,7 @@ gnutls plugin for XML Security Library provides gnutls based crypto services
 for the xmlsec library
 
 %package -n %{libname_gnutls_devel}
-Summary: gnutls crypto plugin for XML Security Library
+Summary: Gnutls crypto plugin for XML Security Library
 Group: Development/C
 Requires: %{libname_gnutls}
 Provides: %{name}-gnutls-devel = %{version}-%{release}
