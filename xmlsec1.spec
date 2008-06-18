@@ -17,7 +17,7 @@
 Summary: Library providing support for "XML Signature" and "XML Encryption" standards
 Name: xmlsec1
 Version: 1.2.10
-Release: %mkrel 6
+Release: %mkrel 7
 License: MIT
 Group: Development/C
 Source: ftp://ftp.aleksey.com/pub/xmlsec/releases/xmlsec1-%{version}.tar.gz
