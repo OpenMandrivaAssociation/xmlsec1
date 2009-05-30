@@ -16,17 +16,20 @@
 
 Summary: Library providing support for "XML Signature" and "XML Encryption" standards
 Name: xmlsec1
-Version: 1.2.10
-Release: %mkrel 8
+Version: 1.2.11
+Release: %mkrel 1
 License: MIT
 Group: Development/C
 Source: ftp://ftp.aleksey.com/pub/xmlsec/releases/xmlsec1-%{version}.tar.gz
+Patch0: xmlsec1-1.2.10-gnutls-2.8.patch
+Patch1: xmlsec1-1.2.10-linkage.patch
 BuildRoot: %{_tmppath}/xmlsec1-%{version}-root
 URL: http://www.aleksey.com/xmlsec
 BuildRequires: gnutls-devel
 BuildRequires: libxml2-devel >= 2.6.12
 BuildRequires: libxslt-devel >= 1.0.20
 BuildRequires: nss-devel
+BuildRequires: libtool-devel
 BuildRequires: openssl-devel >= 0.9.6
 
 %description
@@ -106,9 +109,11 @@ Libraries, includes, etc. for developing XML Security applications with gnutls.
 
 %prep
 %setup -q
+%patch0 -p0
+%patch1 -p0
 
 %build
-%configure
+%configure2_5x
 %make
 
 %install
@@ -145,6 +150,7 @@ rm -rf %buildroot
 %{_bindir}/xmlsec1-config
 %{_includedir}/xmlsec1/xmlsec/*.h
 %{_includedir}/xmlsec1/xmlsec/private/*.h
+%{_datadir}/aclocal/xmlsec1.m4
 %{_libdir}/libxmlsec1.*a
 %{_libdir}/libxmlsec1.so
 %{_libdir}/pkgconfig/xmlsec1.pc
