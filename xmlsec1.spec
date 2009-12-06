@@ -16,22 +16,22 @@
 
 Summary: Library providing support for "XML Signature" and "XML Encryption" standards
 Name: xmlsec1
-Version: 1.2.13
-Release: %mkrel 2
+Version: 1.2.14
+Release: %mkrel 1
 License: MIT
 Group: Development/C
-Source: ftp://ftp.aleksey.com/pub/xmlsec/releases/xmlsec1-%{version}.tar.gz
+URL: http://www.aleksey.com/xmlsec
+Source0: ftp://ftp.aleksey.com/pub/xmlsec/releases/xmlsec1-%{version}.tar.gz
 Patch0: xmlsec1-1.2.10-gnutls-2.8.patch
 Patch1: xmlsec1-1.2.10-linkage.patch
-Patch2: xmlsec1-ltdl.patch
-BuildRoot: %{_tmppath}/xmlsec1-%{version}-root
-URL: http://www.aleksey.com/xmlsec
 BuildRequires: gnutls-devel
 BuildRequires: libxml2-devel >= 2.7.4
 BuildRequires: libxslt-devel >= 1.0.20
 BuildRequires: nss-devel
+BuildRequires: libtool
 BuildRequires: libtool-devel
 BuildRequires: openssl-devel >= 0.9.6
+BuildRoot: %{_tmppath}/xmlsec1-%{version}-root
 
 %description
 XML Security Library is a C library based on LibXML2  and OpenSSL.
@@ -109,10 +109,10 @@ Provides: %{name}-gnutls-devel = %{version}-%{release}
 Libraries, includes, etc. for developing XML Security applications with gnutls.
 
 %prep
+
 %setup -q
-%patch0 -p0
-%patch1 -p0
-%patch2 -p1 -b .cve-2009-3637
+%patch0 -p1
+%patch1 -p1
 
 %build
 %configure2_5x
