@@ -1,6 +1,6 @@
 %define major 1
 
-%define libname %mklibname xmlsec1- %{major}
+%define libname %mklibname xmlsec1_ %{major}
 %define libname_devel %mklibname -d xmlsec1
 
 %define libname_gnutls %mklibname xmlsec1-gnutls %{major}
@@ -34,6 +34,7 @@ standards "XML Digital Signature" and "XML Encryption".
 %package -n %{libname}
 Summary: Library providing support for "XML Signature" and "XML Encryption" standards
 Group: Development/C
+Obsoletes: %{_lib}xmlsec1-1 < 1.2.16
 
 %description -n %{libname}
 XML Security Library is a C library based on LibXML2  and OpenSSL.
