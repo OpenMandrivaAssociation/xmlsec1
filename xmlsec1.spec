@@ -4,33 +4,26 @@
 %define libname_devel %mklibname -d xmlsec1
 
 %define libname_gnutls %mklibname xmlsec1-gnutls %{major}
-%define libname_gnutls_devel %mklibname -d xmlsec1-gnutls
-
 %define libname_nss %mklibname xmlsec1-nss %{major}
-%define libname_nss_devel %mklibname -d xmlsec1-nss
-
 %define libname_openssl %mklibname xmlsec1-openssl %{major}
-%define libname_openssl_devel %mklibname -d xmlsec1-openssl
-
-%define _requires_exceptions devel\(libnspr4\\|devel\(libnss3\\|devel\(libsmime3\\|devel\(libplds4\\|devel\(libplc4\\|devel\(libssl3\\|devel\(libsoftokn3
+%define libname_gcrypt %mklibname xmlsec1-gcrypt %{major}
 
 Summary: Library providing support for "XML Signature" and "XML Encryption" standards
 Name: xmlsec1
-Version: 1.2.14
-Release: %mkrel 3
+Version: 1.2.16
+Release: %mkrel 1
 License: MIT
 Group: Development/C
 URL: http://www.aleksey.com/xmlsec
-Source0: ftp://ftp.aleksey.com/pub/xmlsec/releases/xmlsec1-%{version}.tar.gz
-Patch0: xmlsec1-1.2.10-gnutls-2.8.patch
-Patch1: xmlsec1-1.2.10-linkage.patch
+Source0: http://www.aleksey.com/xmlsec/download/%{name}-%{version}.tar.gz
+Patch1: xmlsec1-1.2.16-linkage.patch
 BuildRequires: gnutls-devel
+BuildRequires: libgcrypt-devel
 BuildRequires: libxml2-devel >= 2.7.4
 BuildRequires: libxslt-devel >= 1.0.20
 BuildRequires: nss-devel
-BuildRequires: libtool
-BuildRequires: libtool-devel
 BuildRequires: openssl-devel >= 0.9.6
+BuildRequires: libtool-devel
 BuildRoot: %{_tmppath}/xmlsec1-%{version}-root
 
 %description
@@ -50,8 +43,15 @@ standards "XML Digital Signature" and "XML Encryption".
 %package -n %{libname_devel}
 Summary: Libraries, includes, etc. to develop applications with XML Digital Signatures and XML Encryption support
 Group: Development/C
-Requires: %{libname}
+Requires: %{libname} = %{version}
+Requires: %{libname_openssl} = %{version}
+Requires: %{libname_gnutls} = %{version}
+Requires: %{libname_nss} = %{version}
+Requires: %{libname_gcrypt} = %{version}
 Provides: %{name}-devel = %{version}-%{release}
+Obsoletes: %{_lib}xmlsec1-gnutls-devel < 1.2.16
+Obsoletes: %{_lib}xmlsec1-nss-devel < 1.2.16
+Obsoletes: %{_lib}xmlsec1-openssl-devel < 1.2.16
 
 %description -n %{libname_devel}
 Libraries, includes, etc. you can use to develop applications with XML Digital
@@ -65,15 +65,6 @@ Group: Development/C
 OpenSSL plugin for XML Security Library provides OpenSSL based crypto services
 for the xmlsec library
 
-%package -n %{libname_openssl_devel}
-Summary: OpenSSL crypto plugin for XML Security Library
-Group: Development/C
-Requires: %{libname_openssl}
-Provides: %{name}-openssl-devel = %{version}-%{release}
-
-%description -n %{libname_openssl_devel}
-Libraries, includes, etc. for developing XML Security applications with OpenSSL
-
 %package -n %{libname_nss}
 Summary: NSS crypto plugin for XML Security Library
 Group: Development/C
@@ -81,15 +72,6 @@ Group: Development/C
 %description -n %{libname_nss}
 NSS plugin for XML Security Library provides NSS based crypto services
 for the xmlsec library
-
-%package -n %{libname_nss_devel}
-Summary: NSS crypto plugin for XML Security Library
-Group: Development/C
-Requires: %{libname_nss}
-Provides: %{name}-nss-devel = %{version}-%{release}
-
-%description -n %{libname_nss_devel}
-Libraries, includes, etc. for developing XML Security applications with NSS
 
 %package -n %{libname_gnutls}
 Summary: Gnutls crypto plugin for XML Security Library
@@ -99,32 +81,25 @@ Group: Development/C
 gnutls plugin for XML Security Library provides gnutls based crypto services
 for the xmlsec library
 
-%package -n %{libname_gnutls_devel}
-Summary: Gnutls crypto plugin for XML Security Library
+%package -n %{libname_gcrypt}
+Summary: Gcrypt crypto plugin for XML Security Library
 Group: Development/C
-Requires: %{libname_gnutls}
-Provides: %{name}-gnutls-devel = %{version}-%{release}
 
-%description -n %{libname_gnutls_devel}
-Libraries, includes, etc. for developing XML Security applications with gnutls.
+%description -n %{libname_gcrypt}
+gcrypt plugin for XML Security Library provides gcrypt based crypto services
+for the xmlsec library
 
 %prep
-
 %setup -q
-%patch0 -p1
 %patch1 -p1
 
 %build
-%configure2_5x
+%configure2_5x --disable-static
 %make
 
 %install
 rm -rf %buildroot
-mkdir -p %buildroot/usr/bin
-mkdir -p %buildroot/usr/include/xmlsec1
-mkdir -p %buildroot/usr/lib
-mkdir -p %buildroot/usr/man/man1
-make install DESTDIR=%buildroot
+%makeinstall_std
 
 %clean
 rm -rf %buildroot
@@ -143,51 +118,33 @@ rm -rf %buildroot
 %{_bindir}/xmlsec1
 
 %files -n %{libname}
-%{_libdir}/libxmlsec1.so.*
+%{_libdir}/libxmlsec1.so.%{major}*
 
 %files -n %{libname_devel}
 %defattr(-,root,root)
 %doc AUTHORS HACKING ChangeLog NEWS README Copyright
 %doc %{_mandir}/man1/xmlsec1-config.1*
 %{_bindir}/xmlsec1-config
-%{_includedir}/xmlsec1/xmlsec/*.h
-%{_includedir}/xmlsec1/xmlsec/private/*.h
+%{_includedir}/xmlsec1
 %{_datadir}/aclocal/xmlsec1.m4
-%{_libdir}/libxmlsec1.*a
-%{_libdir}/libxmlsec1.so
-%{_libdir}/pkgconfig/xmlsec1.pc
-%{_libdir}/xmlsec1Conf.sh
+%{_libdir}/*.so
+%{_libdir}/*.la
+%{_libdir}/pkgconfig/*.pc
+%{_libexecdir}/xmlsec1Conf.sh
 %{_docdir}/xmlsec1/*
 
 %files -n %{libname_openssl}
 %defattr(-,root,root)
-%{_libdir}/libxmlsec1-openssl.so.*
-
-%files -n %{libname_openssl_devel}
-%defattr(-,root,root)
-%{_includedir}/xmlsec1/xmlsec/openssl/*.h
-%{_libdir}/libxmlsec1-openssl.*a
-%{_libdir}/libxmlsec1-openssl.so
-%{_libdir}/pkgconfig/xmlsec1-openssl.pc
+%{_libdir}/libxmlsec1-openssl.so.%{major}*
 
 %files -n %{libname_nss}
 %defattr(-,root,root)
-%{_libdir}/libxmlsec1-nss.so.*
-
-%files -n %{libname_nss_devel}
-%defattr(-,root,root)
-%{_includedir}/xmlsec1/xmlsec/nss/*.h
-%{_libdir}/libxmlsec1-nss.*a
-%{_libdir}/libxmlsec1-nss.so
-%{_libdir}/pkgconfig/xmlsec1-nss.pc
+%{_libdir}/libxmlsec1-nss.so.%{major}*
 
 %files -n %{libname_gnutls}
 %defattr(-,root,root)
-%{_libdir}/libxmlsec1-gnutls.so.*
+%{_libdir}/libxmlsec1-gnutls.so.%{major}*
 
-%files -n %{libname_gnutls_devel}
+%files -n %{libname_gcrypt}
 %defattr(-,root,root)
-%{_includedir}/xmlsec1/xmlsec/gnutls/*.h
-%{_libdir}/libxmlsec1-gnutls.*a
-%{_libdir}/libxmlsec1-gnutls.so
-%{_libdir}/pkgconfig/xmlsec1-gnutls.pc
+%{_libdir}/libxmlsec1-gcrypt.so.%{major}*
