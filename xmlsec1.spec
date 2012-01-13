@@ -11,7 +11,7 @@
 Summary: Library providing support for "XML Signature" and "XML Encryption" standards
 Name: xmlsec1
 Version: 1.2.18
-Release: %mkrel 1
+Release: 2
 License: MIT
 Group: Development/C
 URL: http://www.aleksey.com/xmlsec
@@ -24,7 +24,6 @@ BuildRequires: libxslt-devel >= 1.0.20
 BuildRequires: nss-devel
 BuildRequires: openssl-devel >= 0.9.6
 BuildRequires: libtool-devel
-BuildRoot: %{_tmppath}/xmlsec1-%{version}-root
 
 %description
 XML Security Library is a C library based on LibXML2  and OpenSSL.
@@ -99,22 +98,9 @@ for the xmlsec library
 %make
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
-%if %mdkversion < 200900
-%post -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -p /sbin/ldconfig
-%endif
-
 %files
-%defattr(-,root,root)
-%doc AUTHORS ChangeLog NEWS README Copyright
 %doc %{_mandir}/man1/xmlsec1.1*
 %{_bindir}/xmlsec1
 
@@ -122,30 +108,24 @@ rm -rf %buildroot
 %{_libdir}/libxmlsec1.so.%{major}*
 
 %files -n %{libname_devel}
-%defattr(-,root,root)
 %doc AUTHORS HACKING ChangeLog NEWS README Copyright
 %doc %{_mandir}/man1/xmlsec1-config.1*
 %{_bindir}/xmlsec1-config
 %{_includedir}/xmlsec1
 %{_datadir}/aclocal/xmlsec1.m4
 %{_libdir}/*.so
-%{_libdir}/*.la
 %{_libdir}/pkgconfig/*.pc
 %{_libexecdir}/xmlsec1Conf.sh
 %{_docdir}/xmlsec1/*
 
 %files -n %{libname_openssl}
-%defattr(-,root,root)
 %{_libdir}/libxmlsec1-openssl.so.%{major}*
 
 %files -n %{libname_nss}
-%defattr(-,root,root)
 %{_libdir}/libxmlsec1-nss.so.%{major}*
 
 %files -n %{libname_gnutls}
-%defattr(-,root,root)
 %{_libdir}/libxmlsec1-gnutls.so.%{major}*
 
 %files -n %{libname_gcrypt}
-%defattr(-,root,root)
 %{_libdir}/libxmlsec1-gcrypt.so.%{major}*
