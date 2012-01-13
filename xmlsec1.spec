@@ -99,6 +99,7 @@ for the xmlsec library
 
 %install
 %makeinstall_std
+find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 %files
 %doc %{_mandir}/man1/xmlsec1.1*
