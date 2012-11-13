@@ -1,0 +1,20 @@
+--- xmlsec1-1.2.16/src/gnutls/Makefile.am.link	2010-10-03 14:45:34.000000000 +0200
++++ xmlsec1-1.2.16/src/gnutls/Makefile.am	2010-10-03 14:45:59.000000000 +0200
+@@ -43,6 +43,7 @@
+ # xmlsec-gnutls library requires xmlsec-gcrypt
+ libxmlsec1_gnutls_la_LIBADD = \
+ 	$(GNUTLS_LIBS) \
++	$(GCRYPT_LIBS) \
+ 	$(LIBXSLT_LIBS) \
+ 	$(LIBXML_LIBS) \
+ 	../libxmlsec1.la \
+--- xmlsec1-1.2.16/src/gnutls/Makefile.in.link	2010-10-03 14:46:08.000000000 +0200
++++ xmlsec1-1.2.16/src/gnutls/Makefile.in	2010-10-03 14:46:20.000000000 +0200
+@@ -346,6 +346,7 @@
+ # xmlsec-gnutls library requires xmlsec-gcrypt
+ libxmlsec1_gnutls_la_LIBADD = \
+ 	$(GNUTLS_LIBS) \
++	$(GCRYPT_LIBS) \
+ 	$(LIBXSLT_LIBS) \
+ 	$(LIBXML_LIBS) \
+ 	../libxmlsec1.la \
