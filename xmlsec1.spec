@@ -130,3 +130,95 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 %files -n %{libname_gcrypt}
 %{_libdir}/libxmlsec1-gcrypt.so.%{major}*
+
+
+%changelog
+* Fri Jan 13 2012 Alexander Khrukin <akhrukin@mandriva.org> 1.2.18-2
++ Revision: 760706
+- removed la files from 2011
+
+* Fri Jan 13 2012 Alexander Khrukin <akhrukin@mandriva.org> 1.2.18-2
++ Revision: 760695
+- rebuild
+
+* Thu May 12 2011 Funda Wang <fwang@mandriva.org> 1.2.18-1
++ Revision: 673698
+- update to new version 1.2.18
+
+* Sun Apr 03 2011 Oden Eriksson <oeriksson@mandriva.com> 1.2.17-1
++ Revision: 649995
+- 1.2.17
+
+* Sun Oct 03 2010 Funda Wang <fwang@mandriva.org> 1.2.16-1mdv2011.0
++ Revision: 582711
+- modify lib name according to our policy
+- New version 1.2.16 (merge all devel packages into one)
+
+* Mon Apr 19 2010 Funda Wang <fwang@mandriva.org> 1.2.14-3mdv2010.1
++ Revision: 536658
+- rebuild
+
+* Fri Feb 26 2010 Oden Eriksson <oeriksson@mandriva.com> 1.2.14-2mdv2010.1
++ Revision: 511664
+- rebuilt against openssl-0.9.8m
+
+* Sun Dec 06 2009 Oden Eriksson <oeriksson@mandriva.com> 1.2.14-1mdv2010.1
++ Revision: 474141
+- 1.2.14 (fixes CVE-2009-3736)
+- rediff patches
+
+* Mon Nov 30 2009 Oden Eriksson <oeriksson@mandriva.com> 1.2.13-2mdv2010.1
++ Revision: 471767
+- P2: security fix for CVE-2009-3637 (eugeni)
+
+* Sat Oct 10 2009 Oden Eriksson <oeriksson@mandriva.com> 1.2.13-1mdv2010.0
++ Revision: 456540
+- 1.2.13
+- rediffed 2/2 patches
+
+* Sat May 30 2009 Funda Wang <fwang@mandriva.org> 1.2.11-1mdv2010.0
++ Revision: 381490
+- New version 1.2.11
+- build with latest gnutls 2.8
+
+* Fri Nov 21 2008 Per Øyvind Karlsen <peroyvind@mandriva.org> 1.2.10-8mdv2009.1
++ Revision: 305428
+- rebuild to get rid of 'rpmlib(PayloadIsLzma) <= 4.4.2.2-1' dependency
+
+* Thu Jun 19 2008 Thierry Vignaud <tv@mandriva.org> 1.2.10-7mdv2009.0
++ Revision: 226068
+- rebuild
+- fix summary-not-capitalized
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+* Tue Jan 22 2008 Funda Wang <fwang@mandriva.org> 1.2.10-6mdv2008.1
++ Revision: 156357
+- rebuild
+
+  + Olivier Blin <blino@mandriva.org>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+    - fix summary-ended-with-dot
+
+* Mon Jul 02 2007 Marcelo Ricardo Leitner <mrl@mandriva.com> 1.2.10-5mdv2008.0
++ Revision: 47090
+- Fix regexp so match 64bit requires too
+
+* Mon Jul 02 2007 Marcelo Ricardo Leitner <mrl@mandriva.com> 1.2.10-4mdv2008.0
++ Revision: 47085
+- Added devel provides for inter-arch stuff.
+
+* Tue Jun 26 2007 Marcelo Ricardo Leitner <mrl@mandriva.com> 1.2.10-3mdv2008.0
++ Revision: 44766
+- There are no devel() provides for libnss3 libs.
+
+* Tue Jun 26 2007 Marcelo Ricardo Leitner <mrl@mandriva.com> 1.2.10-2mdv2008.0
++ Revision: 44753
+- Added missing buildrequires to gnutls-devel
+- Fix requires.
+- Import xmlsec1
+
