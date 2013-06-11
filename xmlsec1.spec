@@ -20,9 +20,9 @@ BuildRequires:	libtool-devel
 BuildRequires:	pkgconfig(gnutls)
 BuildRequires:	pkgconfig(libgcrypt)
 BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	pkgconfig(libxslt)
 BuildRequires:	pkgconfig(nss)
 BuildRequires:	pkgconfig(openssl)
-BuildRequires:	pkgconfig(xslt)
 
 %description
 XML Security Library is a C library based on LibXML2  and OpenSSL.
