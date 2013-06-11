@@ -71,7 +71,7 @@ gcrypt plugin for XML Security Library provides gcrypt based crypto services
 for the xmlsec library
 
 %package -n %{devname}
-Summary:	Libraries, includes, etc. to develop applications with XML Digital Signatures and XML Encryption support
+Summary:	Development files for %{name}
 Group:		Development/C
 Requires:	%{libname} = %{version}-%{release}
 Requires:	%{libname_openssl} = %{version}-%{release}
