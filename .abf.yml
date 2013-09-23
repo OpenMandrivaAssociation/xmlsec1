@@ -1,2 +1,4 @@
+removed_sources:
+  xmlsec1-1.2.18.tar.gz: 740c3c791be838bf638651a3fe0e80c624c2ae0e
 sources:
-  "xmlsec1-1.2.18.tar.gz": 740c3c791be838bf638651a3fe0e80c624c2ae0e
+  xmlsec1-1.2.19.tar.gz: 9f24f84bf6f4a61fc55637f016b56c0f44c048ba
