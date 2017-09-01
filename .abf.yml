@@ -1,5 +1,2 @@
-removed_sources:
-  xmlsec1-1.2.18.tar.gz: 740c3c791be838bf638651a3fe0e80c624c2ae0e
-  xmlsec1-1.2.19.tar.gz: 9f24f84bf6f4a61fc55637f016b56c0f44c048ba
 sources:
-  xmlsec1-1.2.20.tar.gz: 40117ab0f788e43deef6eaf028c88f6abc3a30d0
+  xmlsec1-1.2.24.tar.gz: b64a443641de3338d7d1ba17f25653a314d65d93
