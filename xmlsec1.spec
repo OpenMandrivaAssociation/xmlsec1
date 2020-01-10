@@ -86,7 +86,7 @@ Signatures and XML Encryption support.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 %configure --disable-static
