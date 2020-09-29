@@ -9,7 +9,7 @@
 Summary:	Library providing support for "XML Signature" and "XML Encryption" standards
 Name:		xmlsec1
 Version:	1.2.30
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/C
 Url:		http://www.aleksey.com/xmlsec
@@ -85,15 +85,14 @@ Libraries, includes, etc. you can use to develop applications with XML Digital
 Signatures and XML Encryption support.
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
 %configure --disable-static
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %{_bindir}/xmlsec1
