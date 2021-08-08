@@ -8,7 +8,7 @@
 
 Summary:	Library providing support for "XML Signature" and "XML Encryption" standards
 Name:		xmlsec1
-Version:	1.2.31
+Version:	1.2.32
 Release:	1
 License:	MIT
 Group:		Development/C
