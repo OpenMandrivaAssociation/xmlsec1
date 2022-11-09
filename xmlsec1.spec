@@ -8,8 +8,8 @@
 
 Summary:	Library providing support for "XML Signature" and "XML Encryption" standards
 Name:		xmlsec1
-Version:	1.2.34
-Release:	2
+Version:	1.2.36
+Release:	1
 License:	MIT
 Group:		Development/C
 Url:		http://www.aleksey.com/xmlsec
@@ -114,7 +114,7 @@ Signatures and XML Encryption support.
 %{_libdir}/libxmlsec1-gcrypt.so.%{major}*
 
 %files -n %{devname}
-%doc AUTHORS HACKING ChangeLog NEWS README Copyright
+%doc AUTHORS HACKING ChangeLog NEWS
 %doc %{_mandir}/man1/xmlsec1-config.1*
 %{_bindir}/xmlsec1-config
 %{_includedir}/xmlsec1
