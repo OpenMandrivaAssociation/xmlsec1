@@ -1,0 +1,22 @@
+diff -up xmlsec1-1.3.0/src/nss/crypto.c.omv~ xmlsec1-1.3.0/src/nss/crypto.c
+--- xmlsec1-1.3.0/src/nss/crypto.c.omv~	2023-04-26 19:15:25.268532093 +0200
++++ xmlsec1-1.3.0/src/nss/crypto.c	2023-04-26 19:15:28.956565329 +0200
+@@ -412,7 +412,7 @@ xmlSecNssKeysMngrInit(xmlSecKeysMngrPtr
+  * Returns: internal key slot and initializes it if needed.
+  */
+ PK11SlotInfo *
+-xmlSecNssGetInternalKeySlot()
++xmlSecNssGetInternalKeySlot(void)
+ {
+     PK11SlotInfo *slot = NULL;
+     SECStatus rv;
+diff -up xmlsec1-1.3.0/src/openssl/symkeys.c.omv~ xmlsec1-1.3.0/src/openssl/symkeys.c
+--- xmlsec1-1.3.0/src/openssl/symkeys.c.omv~	2023-04-26 19:15:06.187360113 +0200
++++ xmlsec1-1.3.0/src/openssl/symkeys.c	2023-04-26 19:15:10.292397116 +0200
+@@ -618,4 +618,4 @@ xmlSecOpenSSLKeyDataPbkdf2Set(xmlSecKeyD
+ 
+     return(xmlSecBufferSetData(buffer, buf, bufSize));
+ }
+-#endif /* XMLSEC_NO_PBKDF2 */
+\ No newline at end of file
++#endif /* XMLSEC_NO_PBKDF2 */
