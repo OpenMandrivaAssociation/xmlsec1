@@ -8,13 +8,12 @@
 
 Summary:	Library providing support for "XML Signature" and "XML Encryption" standards
 Name:		xmlsec1
-Version:	1.3.0
+Version:	1.3.1
 Release:	1
 License:	MIT
 Group:		Development/C
 Url:		http://www.aleksey.com/xmlsec
 Source0:	http://www.aleksey.com/xmlsec/download/%{name}-%{version}.tar.gz
-Patch0:		xmlsec-1.3.0-compile.patch
 
 BuildRequires:	libtool-devel
 BuildRequires:	pkgconfig(gnutls)
