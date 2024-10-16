@@ -12,7 +12,7 @@ Version:	1.3.5
 Release:	1
 License:	MIT
 Group:		Development/C
-Url:		http://www.aleksey.com/xmlsec
+Url:		https://www.aleksey.com/xmlsec
 Source0:	http://www.aleksey.com/xmlsec/download/%{name}-%{version}.tar.gz
 
 BuildRequires:	libtool-devel
