@@ -15,6 +15,11 @@ Group:		Development/C
 Url:		https://www.aleksey.com/xmlsec
 Source0:	http://www.aleksey.com/xmlsec/download/%{name}-%{version}.tar.gz
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libtool-devel
 BuildRequires:	pkgconfig(gnutls)
 BuildRequires:	pkgconfig(libgcrypt)
