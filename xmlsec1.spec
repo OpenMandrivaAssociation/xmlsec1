@@ -24,6 +24,7 @@ BuildRequires:	libtool-devel
 BuildRequires:	pkgconfig(gnutls)
 BuildRequires:	pkgconfig(libgcrypt)
 BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	pkgconfig(sltdl)
 BuildRequires:	pkgconfig(libxslt)
 BuildRequires:	pkgconfig(nss)
 BuildRequires:	pkgconfig(openssl)
