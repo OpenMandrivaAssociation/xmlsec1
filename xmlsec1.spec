@@ -119,7 +119,7 @@ Signatures and XML Encryption support.
 %{_libdir}/libxmlsec1-gcrypt.so.%{major}*
 
 %files -n %{devname}
-%doc AUTHORS HACKING ChangeLog NEWS
+%doc HACKING ChangeLog NEWS
 %doc %{_mandir}/man1/xmlsec1-config.1*
 %{_bindir}/xmlsec1-config
 %{_includedir}/xmlsec1
