@@ -93,7 +93,7 @@ Signatures and XML Encryption support.
 %autosetup -p1
 
 %build
-%configure --disable-static
+%configure --disable-static --with-gcrypt
 %make_build
 
 %install
